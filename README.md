@@ -1,25 +1,35 @@
+# 1. 簡介：
+  使用之前訓練好的bert_lstm情感模型來實時預測yt跟twitch直播間的觀眾情緒，更新間格為5秒，測試文本在upload的test.txt裡
+# 2. 效果：
 
-# Web Scraper
 
-We have created a Web Scraping Website which scrapes text contents for an entered website. In this project, data is scraped based on two parameters - the url and the keywords that are provided by the user. Any result that is displayed will take both these parameters into account.
+https://github.com/user-attachments/assets/fc2084f9-39fc-42f3-b90b-3d66b6875183
 
-# Objectives
+![螢幕擷取畫面 2024-09-11 204945](https://github.com/user-attachments/assets/2e0861aa-fa1d-4f33-8071-ae23e038b065)
+![螢幕擷取畫面 2024-09-11 204922](https://github.com/user-attachments/assets/a6bcbbb4-ce5f-4db0-8014-a06d46b358c8)
+![螢幕擷取畫面 2024-09-11 205640](https://github.com/user-attachments/assets/4cb232b9-9376-4e83-b908-1091bdf1a8f1)
 
-1. URL and keywords are accepted from the user.
-2. The data is scraped in accordance with these parameters.
-3. Scraped data is delivered to the user in an ordered format.
 
-# Installation
 
-1. Make sure you have the Python Interpreter with the following modules installed : -requests -re -bs4 -flask
-2. Clone the repository or Download the Code
-3. Open your terminal and run the python file (app.py)
-4. A link will appear after running this file.
-5. Click on this link and use the web scraper.
 
-# Instructions for using the Scraper
+# 3. 運行項目：
 
-1. After you open the website on your preffered browser, Input the required url along with the necessary keywords.
-2. Press the Enter button on your keyboard.
-3. You will then be redirected to the results page where the scraped data result will be displayed.
+在 Flask 後端項目下運行後端代碼：
+
+```bash
+python app.py  
+```
+會運行在本機port 7000
+
+或是
+```bash
+python -m flask run
+```
+
+會默認運行在port 5000
+
+然後在瀏覽器開啟localhost即可：
+# 4. 缺點：
+
+載入模型功能模塊時無法讀取bert_classfier類(動態連結問題?)，得加個setattr()解決這bug
 
