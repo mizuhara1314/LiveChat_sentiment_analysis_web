@@ -13,6 +13,7 @@ https://github.com/user-attachments/assets/fc2084f9-39fc-42f3-b90b-3d66b6875183
 
 
 # 3. 運行項目：
+先至 https://drive.google.com/file/d/1lnJuSLQKl6Xi-o9SYQ3hwElazgswvjKf/view?usp=sharing 下載模型，並解壓到項目根目錄下讓app.py讀取
 
 在 Flask 後端項目下運行後端代碼：
 
