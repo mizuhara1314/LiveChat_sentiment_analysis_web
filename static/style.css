@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #87CEEB;
+    background-image: url('1.jpg'); /* Replace with your actual image path */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.platform-selection {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input-section {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 25px;
+    width: 300px;
+    outline: none;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* 美化footer部分 */
+footer {
+    position: fixed; /* 固定在页面底部 */
+    bottom: 10px; /* 与页面底部的距离 */
+    left: 0;
+    width: 100%; /* 宽度占满页面 */
+    text-align: center; /* 文本居中 */
+    padding: 10px 0; /* 上下内边距 */
+    background-color: rgba(255, 255, 255, 0.8); /* 半透明背景色 */
+    backdrop-filter: blur(10px); /* 添加背景模糊效果 */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* 添加顶部阴影 */
+    font-size: 14px; /* 字体大小 */
+    color: #555; /* 文字颜色 */
+    font-weight: 500; /* 字体粗细 */
+}
+
+footer p {
+    margin: 0; /* 移除段落外边距 */
+    line-height: 1.5; /* 行高 */
+}
+
+/* 调整链接和文本的样式 */
+footer p a {
+    color: #000; /* 链接颜色 */
+    text-decoration: none; /* 移除链接下划线 */
+    font-weight: bold; /* 加粗链接文本 */
+}
+
+footer p a:hover {
+    color: #007BFF; /* 鼠标悬停时的链接颜色 */
+    text-decoration: underline; /* 鼠标悬停时添加下划线 */
+}
+

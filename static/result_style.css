@@ -1,0 +1,107 @@
+/* 全局样式 */
+body {
+    font-family: 'Arial', sans-serif; /* 设置全局字体 */
+    background-color: #f4f4f4; /* 背景颜色 */
+    color: #333; /* 文字颜色 */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh; /* 使内容居中 */
+}
+
+.container {
+    width: 90%; /* 容器宽度 */
+    max-width: 1200px; /* 最大宽度 */
+    background-color: #ffffff; /* 背景颜色为白色 */
+    padding: 30px; /* 容器内边距 */
+    border-radius: 8px; /* 圆角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
+    margin: 20px auto; /* 自动外边距 */
+}
+
+h1, h2 {
+    color: #444; /* 标题颜色 */
+    margin-bottom: 15px; /* 下外边距 */
+    font-weight: 600; /* 字体粗细 */
+    text-align: center; /* 居中对齐 */
+}
+
+.predictions-container {
+    margin-bottom: 30px; /* 容器之间的下外边距 */
+    padding: 20px; /* 内边距 */
+    background-color: #f9f9f9; /* 背景颜色 */
+    border-radius: 5px; /* 圆角 */
+    border: 1px solid #ddd; /* 边框 */
+}
+
+.combined-list {
+    list-style-type: none; /* 移除列表样式 */
+    padding: 0; /* 移除内边距 */
+    margin: 0; /* 移除外边距 */
+    max-height: 300px; /* 最大高度 */
+    overflow-y: auto; /* 垂直滚动条 */
+    padding: 10px; /* 列表内边距 */
+    background-color: #fff; /* 列表背景颜色 */
+    border-radius: 4px; /* 列表圆角 */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* 内阴影 */
+}
+
+/* 列表项样式 */
+.combined-list li {
+    padding: 10px; /* 内边距 */
+    margin-bottom: 10px; /* 下外边距 */
+    background-color: #e9ecef; /* 列表项背景颜色 */
+    border-radius: 4px; /* 圆角 */
+    border: 1px solid #ddd; /* 边框 */
+    transition: background-color 0.3s ease; /* 过渡效果 */
+    font-size: 14px; /* 调整字体大小 */
+}
+
+/* 鼠标悬停时的效果 */
+.combined-list li:hover {
+    background-color: #d6e3f3; /* 鼠标悬停时背景颜色 */
+}
+
+/* 图表容器样式 */
+.chart-container {
+    margin-top: 30px; /* 上外边距 */
+    background-color: #f9f9f9; /* 背景颜色 */
+    padding: 20px; /* 内边距 */
+    border-radius: 5px; /* 圆角 */
+    border: 1px solid #ddd; /* 边框 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 添加轻微阴影 */
+}
+
+/* Canvas元素的样式 */
+#lineChart {
+    max-width: 100%; /* 最大宽度 */
+    height: 400px; /* 固定高度 */
+    margin: 0 auto; /* 居中对齐 */
+}
+
+/* 滚动条样式 */
+.combined-list::-webkit-scrollbar {
+    width: 8px; /* 滚动条宽度 */
+}
+
+.combined-list::-webkit-scrollbar-thumb {
+    background-color: #bbb; /* 滚动条颜色 */
+    border-radius: 4px; /* 滚动条圆角 */
+}
+
+.combined-list::-webkit-scrollbar-thumb:hover {
+    background-color: #888; /* 鼠标悬停时的滚动条颜色 */
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px; /* 调整移动设备上的内边距 */
+    }
+
+    #lineChart {
+        height: 300px; /* 在移动设备上减小图表高度 */
+    }
+}

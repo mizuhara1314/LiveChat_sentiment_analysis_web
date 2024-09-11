@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>直播聊天室情緒分析網站</title>
+    <link rel="stylesheet" href="..\static\style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>直播聊天室情緒分析網站</h1>
+        <form action="/submit" method="POST">
+            <div class="platform-selection">
+                <label>平台選擇：</label>
+                <label><input type="radio" name="platform" value="youtube" checked> youtube</label>
+                <label><input type="radio" name="platform" value="twitch"> twitch</label>
+            </div>
+            <div class="input-section">
+                <input type="text" name="url" placeholder="輸入直播間網址" required>
+                <button type="submit">確認</button>
+            </div>
+        </form>
+        <footer>
+            <p>copyright by<br>mizuhara1314</p>
+        </footer>
+    </div>
+</body>
+</html>

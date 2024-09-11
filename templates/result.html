@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>直播间情绪实时分析</title>
+    <!-- 引入jQuery库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- 引入Chart.js库 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 引入CSS样式 -->
+    <link rel="stylesheet" href="../static/result_style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h1>直播間情緒實時分析</h1>
+        
+        <!-- 显示合并后的预测结果和原始数据 -->
+        <div class="predictions-container">
+            <h2>預測結果與原始數據:</h2>
+            <ul id="combinedList" class="combined-list">
+                <!-- JavaScript 将在这里动态插入预测结果和原始数据 -->
+            </ul>
+        </div>
+        <!-- 折线图 -->
+        <div class="chart-container">
+            <h2>實時情緒變化圖表:</h2>
+            <canvas id="lineChart"></canvas>
+        </div>
+    </div>
+
+    <!-- 引入外部JavaScript文件 -->
+    <script src="../static/script.js"></script>
+</body>
+</html>
