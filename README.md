@@ -1,5 +1,5 @@
 # 1. 簡介：
-  使用之前訓練好的bert_lstm情感模型來實時預測yt跟twitch直播間的觀眾情緒，更新間格為5秒，測試文本在upload的test.txt裡
+  使用之前訓練好的bert_lstm情感模型來實時預測yt跟twitch直播間的觀眾情緒，更新間格為10秒，測試文本在upload的test.txt裡
 # 2. 效果：
 
 
