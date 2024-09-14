@@ -39,3 +39,5 @@ python -m flask run
 
 載入模型功能模塊時無法讀取bert_classfier類(動態連結問題?)，得加個setattr()解決這bug
 
+# 5. 改進
+未來可以使用像kafka之類的實時流數據框架或者類似c#的sinalR/websocket通訊來取代ajax/axios需要定時輪循達成監聽
