@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-# 定義自己的bert模型
+# 定義自己的bert+lstm結構
 class BertClassifier(nn.Module):
     """Bert Model for Classification Tasks.
     """
