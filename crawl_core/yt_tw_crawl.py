@@ -57,7 +57,7 @@ class Crawler:
                 
             
             # 限制爬取时间为5秒
-            if time.time() - start_time > 5:
+            if time.time() - start_time > 10:
                 break
         
         # 提取中文字符
