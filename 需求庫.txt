@@ -1,6 +1,10 @@
+anaconda環境
+pytorch-cpu
+
 繁體轉檢體
 opencc-python-reimplemented
 
 網站api
 chat_downloader 
+pytchat
 
