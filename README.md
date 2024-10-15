@@ -17,7 +17,18 @@ https://github.com/user-attachments/assets/65a78c68-bdd9-46eb-807b-6ad9f831f03b
 
 
 # 3. 運行項目：
-先至 https://drive.google.com/file/d/1lnJuSLQKl6Xi-o9SYQ3hwElazgswvjKf/view?usp=sharing 下載模型，並解壓到項目根目錄下讓app.py讀取
+
+### 注意事項 ###
+先至anaconda3\Lib\site-packages\pytchat\core文件夾下的pytchat.py中删除这一部分代码(否則會出現"signal only works in main thread of the main interpreter")
+
+```bash
+
+if interruptable:
+    signal.signal(signal.SIGINT, lambda a, b: self.terminate())
+
+```
+
+然後至 https://drive.google.com/file/d/1lnJuSLQKl6Xi-o9SYQ3hwElazgswvjKf/view?usp=sharing 下載模型，並解壓到項目根目錄下讓app.py讀取
 然後在工作環境選擇conda interpreter
 
 在 Flask 後端項目下運行後端代碼：
