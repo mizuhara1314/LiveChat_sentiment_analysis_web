@@ -44,16 +44,34 @@ $(document).ready(function () {
         }
     });
 
+    let isPredicting = false;  // 标志，避免重复请求
+
     // 自动化预测的函数
     async function autoPredict() {
+        // 如果正在预测中，直接返回，避免重复请求
+        if (isPredicting) {
+            console.log('自動化預測已在進行中，請稍等...');
+            return;
+        }
+    
+        isPredicting = true;  // 设置为正在请求状态
+    
         try {
-            await fetch('/auto_predict', { method: 'POST' });
-            console.log('自動化預測成功');
+            const response = await fetch('/auto_predict', { method: 'POST' });
+    
+            // 检查请求是否成功
+            if (response.ok) {
+                console.log('自動化預測成功');
+            } else {
+                console.error('自動化預測失败，状态码：', response.status);
+            }
         } catch (error) {
             console.error('自動化預測失敗:', error);
+        } finally {
+            isPredicting = false;  // 请求完成后，恢复请求状态
         }
     }
-
+    
     // 获取最新预测数据的函数
     async function fetchPredictions() {
         try {
