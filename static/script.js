@@ -1,7 +1,7 @@
 $(document).ready(function () {
     // 获取画布的2D绘图上下文
     var ctx = $("#lineChart")[0].getContext("2d");
-    
+
     // 初始化Chart.js折线图
     var lineChart = new Chart(ctx, {
         type: 'line',
@@ -44,22 +44,20 @@ $(document).ready(function () {
         }
     });
 
-    let isPredicting = false;  // 标志，避免重复请求
+    let isPredicting = false; // 标志，避免重复请求
 
     // 自动化预测的函数
     async function autoPredict() {
-        // 如果正在预测中，直接返回，避免重复请求
         if (isPredicting) {
             console.log('自動化預測已在進行中，請稍等...');
             return;
         }
-    
-        isPredicting = true;  // 设置为正在请求状态
-    
+
+        isPredicting = true; // 设置为正在请求状态
+
         try {
             const response = await fetch('/auto_predict', { method: 'POST' });
-    
-            // 检查请求是否成功
+
             if (response.ok) {
                 console.log('自動化預測成功');
             } else {
@@ -68,69 +66,69 @@ $(document).ready(function () {
         } catch (error) {
             console.error('自動化預測失敗:', error);
         } finally {
-            isPredicting = false;  // 请求完成后，恢复请求状态
+            isPredicting = false; // 请求完成后，恢复请求状态
         }
     }
-    
+
     // 获取最新预测数据的函数
     async function fetchPredictions() {
         try {
             const response = await fetch('/get_predictions');
             const data = await response.json();
 
-            // 仅保留最新的10条预测
-            const recentData = data.slice(-10);
+            // 保留最新的 50 条数据用于图表
+            const recentDataForChart = data.slice(-50);
 
-            // 清空合并后的列表
+            // 保留最新的 10 条数据用于列表显示
+            const recentDataForList = data.slice(-10);
+
+            // 更新合并列表显示
             $('#combinedList').empty();
+
+            recentDataForList.forEach(item => {
+                const time = new Date(item.time);
+                const formattedTime = time.toLocaleTimeString('en-GB', { hour12: false });
+                const predictionText = item.prediction === 0 ? '負面情绪' : '正面情绪';
+
+                $('#combinedList').prepend(
+                    `<li><strong>${predictionText} (${formattedTime}):</strong> ${item.original_data}</li>`
+                );
+            });
 
             // 更新图表数据
             const negativeCounts = {};
             const positiveCounts = {};
             const labels = [];
 
-            recentData.forEach(item => {
-                const time = new Date(item.time);  // 转换时间字符串为日期对象
-                const formattedTime = time.toLocaleTimeString('en-GB', { hour12: false }); // 格式化时间为 "HH:mm:ss"
+            recentDataForChart.forEach(item => {
+                const time = new Date(item.time);
+                const formattedTime = time.toLocaleTimeString('en-GB', { hour12: false });
 
-                // 将预测结果和原始数据合并显示
-                const predictionText = item.prediction === 0 ? '負面情绪' : '正面情绪';
-                $('#combinedList').prepend(`<li><strong>${predictionText} (${formattedTime}):</strong> ${item.original_data}</li>`);
-
-                // 初始化数据计数
                 if (!negativeCounts[formattedTime]) negativeCounts[formattedTime] = 0;
                 if (!positiveCounts[formattedTime]) positiveCounts[formattedTime] = 0;
 
-                // 统计正负情绪数量
-                if (item.prediction == 0) { // 负面情绪
+                if (item.prediction == 0) {
                     negativeCounts[formattedTime]++;
-                } else if (item.prediction == 1) { // 正面情绪
+                } else if (item.prediction == 1) {
                     positiveCounts[formattedTime]++;
                 }
 
-                // 添加时间标签（避免重复添加）
                 if (!labels.includes(formattedTime)) {
                     labels.push(formattedTime);
                 }
             });
 
-            // 更新Chart.js数据
-            lineChart.data.labels = labels; // 更新x轴标签
-
-            // 处理负面和正面数据集
-            lineChart.data.datasets[0].data = labels.map(label => negativeCounts[label]); // 负面情绪数量
-            lineChart.data.datasets[1].data = labels.map(label => positiveCounts[label]); // 正面情绪数量
-
-            lineChart.update(); // 更新图表
+            lineChart.data.labels = labels;
+            lineChart.data.datasets[0].data = labels.map(label => negativeCounts[label]);
+            lineChart.data.datasets[1].data = labels.map(label => positiveCounts[label]);
+            lineChart.update();
         } catch (error) {
             console.error('Error fetching predictions:', error);
         }
     }
 
-    // 每5秒调用一次自动化预测
+    // 定时任务
     setInterval(autoPredict, 5000);
-
-    // 每5秒调用一次获取最新预测数据的函数
     setInterval(fetchPredictions, 5000);
 
     // 初次加载数据
