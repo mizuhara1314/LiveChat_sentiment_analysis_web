@@ -89,7 +89,8 @@ def auto_predict():
 
         # 使用模型进行预测
         predictions = model_handler.predict_from_file(output_file)
-
+        with open(output_file, "w", encoding="utf-8") as f:
+             pass  # 清空先前數據避免重複預測
         # 为每个预测添加时间戳和原始繁体数据，并存储到全局变量中
         for i, pred in enumerate(predictions):
             
@@ -110,3 +111,4 @@ def auto_predict():
 
 if __name__ == '__main__':
     app.run(debug=True, port=7000)
+
