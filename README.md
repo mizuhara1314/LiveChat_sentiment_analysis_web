@@ -14,9 +14,9 @@ https://github.com/user-attachments/assets/4375435d-bafa-4060-b62d-2ee9b7b90a6b
 
 
 
-
 ![螢幕擷取畫面 2024-09-11 205640](https://github.com/user-attachments/assets/4cb232b9-9376-4e83-b908-1091bdf1a8f1)
-![螢幕擷取畫面 2024-09-11 204945](https://github.com/user-attachments/assets/2e0861aa-fa1d-4f33-8071-ae23e038b065)
+
+<img width="462" height="368" alt="螢幕擷取畫面 2026-01-07 155303" src="https://github.com/user-attachments/assets/68888ba2-cf01-4f80-a38f-c6db9355f1da" />
 
 
 
